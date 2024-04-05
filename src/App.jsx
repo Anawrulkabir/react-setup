@@ -233,7 +233,7 @@ function App() {
                   <span className="token plain"> </span>
                   <span className="token plain"> </span>
                   <span className="token string">
-                    &quot;./src/**/*.&#123;(js, ts, jsx, tsx)&#125;&quot;
+                    &quot;./src/**/*.&#123;js,ts,jsx,tsx&#125;&quot;
                   </span>
                   <span className="token punctuation">,</span>
                   <span className="token plain"></span>
