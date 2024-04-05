@@ -1,45 +1,117 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { LuFolderOpenDot } from 'react-icons/lu'
 
 function App() {
-  const [count, setCount] = useState(0)
+  function copyToClipboard(id, btnId) {
+    const textToCopy = document.getElementById(id).innerText
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        console.log('Text copied to clipboard')
+      })
+      .catch((err) => {
+        console.error('Error copying text: ', err)
+      })
+
+    document.getElementById(btnId).classList.add('tooltip')
+  }
+  const [projectName, setProjectName] = useState('my-project')
+
+  const handleForm = (e) => {
+    e.preventDefault()
+    const project = e.target.name.value
+    setProjectName(project)
+    console.log(projectName)
+  }
 
   return (
     <>
-      <p className="text-6xl text-white">React Setup Essentials</p>
+      <p className="text-6xl  font-mono text-orange-400 m-20 text-center">
+        React Setup Essentials
+      </p>
+      <div className="mx-[450px] mt-10 mb-20 flex ">
+        <form onSubmit={handleForm} className="flex gap-10">
+          <label className="input input-bordered flex items-center gap-2">
+            <input
+              type="text"
+              className="grow"
+              placeholder="Project Name"
+              name="name"
+            />
+            <LuFolderOpenDot />
+          </label>
+          <button className="btn bg-orange-400 text-black text-sm">
+            Enter
+          </button>
+        </form>
+      </div>
 
-      <div className="mx-[300px] my-10 p-3 ">
-        <p className="text-xl text-white p-4">Necessary Command</p>
-        <div className="mockup-code text-left ">
-          <pre data-prefix="1" className="text-warning">
-            <code>npm create vite@latest my-project -- --template react </code>
+      <div className="mx-[300px] my-10   bg-slate-800 rounded-xl shadow-lg">
+        <div className="relative flex text-slate-400 text-xs leading-6">
+          <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
+            command
+          </div>
+          <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">
+            <div className="flex-auto -mr-px bg-slate-700/50 border border-slate-500/30 rounded-tl"></div>
+          </div>
+          <div className="absolute top-2 right-0 h-8 flex items-center pr-4">
+            <div className="relative flex -mr-2">
+              <button
+                type="button"
+                className="text-slate-500 hover:text-slate-400 "
+                data-tip="copied"
+                id="tailwind-config-btn"
+                onClick={() =>
+                  copyToClipboard('tailwind-config', 'tailwind-config-btn')
+                }
+              >
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  className="w-8 h-8"
+                >
+                  <path d="M13 10.75h-1.25a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h8.5a2 2 0 0 0 2-2v-8.5a2 2 0 0 0-2-2H19"></path>
+                  <path d="M18 12.25h-4a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5a1 1 0 0 1-1 1ZM13.75 16.25h4.5M13.75 19.25h4.5"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className=" text-left p-5 text-zinc-300" id="command">
+          <pre data-prefix="1" className="">
+            <code>
+              npm create vite@latest {projectName} -- --template react{' '}
+            </code>
           </pre>
-          <pre data-prefix="2" className="text-warning">
-            <code>cd my-project</code>
+          <pre data-prefix="2" className="">
+            <code>cd {projectName}</code>
           </pre>
-          <pre data-prefix="3" className="text-warning">
+          <pre data-prefix="3" className="">
             <code>npm install -D tailwindcss postcss autoprefixer</code>
           </pre>
-          <pre data-prefix="4" className="text-warning">
+          <pre data-prefix="4" className="">
             <code>npx tailwindcss init -p</code>
           </pre>
-          <pre data-prefix="5" className="text-warning">
+          <pre data-prefix="5" className="">
             <code>npm i -D daisyui@latest</code>
           </pre>
-          <pre data-prefix="6" className="text-warning">
+          <pre data-prefix="6" className="">
             <code>
               npm install react-router-dom localforage match-sorter sort-by
             </code>
           </pre>
-          <pre data-prefix="7" className="text-warning">
+          <pre data-prefix="7" className="">
             <code>npm install firebase</code>
           </pre>
-          <pre data-prefix="8" className="text-warning">
+          <pre data-prefix="8" className="">
             <code>npm install react-icons --save</code>
           </pre>
-          <pre data-prefix="9" className="text-warning">
+          <pre data-prefix="9" className="">
             <code>npm i react-toastify</code>
           </pre>
         </div>
@@ -58,7 +130,12 @@ function App() {
               <div className="relative flex -mr-2">
                 <button
                   type="button"
-                  className="text-slate-500 hover:text-slate-400"
+                  className="text-slate-500 hover:text-slate-400 "
+                  data-tip="copied"
+                  id="tailwind-config-btn"
+                  onClick={() =>
+                    copyToClipboard('tailwind-config', 'tailwind-config-btn')
+                  }
                 >
                   <svg
                     fill="none"
@@ -78,7 +155,7 @@ function App() {
           </div>
           <div className="relative">
             <pre className="text-sm leading-6 text-slate-50 flex ligatures-none overflow-auto">
-              <code className="flex-none min-w-full p-5">
+              <code className="flex-none min-w-full p-5" id="tailwind-config">
                 <span className="token block">
                   <span className="token doc-comment comment">/** </span>
                   <span className="token doc-comment comment keyword">
@@ -196,7 +273,7 @@ function App() {
         <div className="relative z-10 -ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
           <div className="relative flex text-slate-400 text-xs leading-6">
             <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
-              src/input.css
+              src/index.css
             </div>
             <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">
               <div className="flex-auto -mr-px bg-slate-700/50 border border-slate-500/30 rounded-tl"></div>
@@ -205,7 +282,9 @@ function App() {
               <div className="relative flex -mr-2">
                 <button
                   type="button"
+                  id="index-css-btn"
                   className="text-slate-500 hover:text-slate-400"
+                  onClick={() => copyToClipboard('index-css', 'index-css-btn')}
                 >
                   <svg
                     fill="none"
@@ -225,7 +304,10 @@ function App() {
           </div>
           <div className="relative">
             <pre className="text-sm leading-6 text-slate-50 flex ligatures-none overflow-auto">
-              <code className="flex-none min-w-full p-5 text-left">
+              <code
+                className="flex-none min-w-full p-5 text-left"
+                id="index-css"
+              >
                 <span className="token atrule">
                   <span className="token rule">@tailwind</span> base
                   <span className="token punctuation">;</span>
@@ -264,7 +346,9 @@ function App() {
             <div className="relative flex -mr-2">
               <button
                 type="button"
+                id="main-jsx-btn"
                 className="text-slate-500 hover:text-slate-400"
+                onClick={() => copyToClipboard('main-jsx', 'main-jsx-btn')}
               >
                 <svg
                   fill="none"
@@ -288,7 +372,7 @@ function App() {
           data-lang="jsx"
           className="p-5"
         >
-          <code>
+          <code id="main-jsx">
             <span className="codeblock-line" data-line-number="1">
               <span>import</span> <span>*</span> <span>as</span>{' '}
               <span>React</span> <span>from</span> &quot;<span>react</span>
