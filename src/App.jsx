@@ -143,7 +143,7 @@ function App() {
                 <button
                   type="button"
                   className="text-slate-500 hover:text-slate-400 "
-                  data-tip="copied 2"
+                  data-tip="copied"
                   id="tailwind-config-btn"
                   onClick={() =>
                     copyToClipboard('tailwind-config', 'tailwind-config-btn')
@@ -202,27 +202,45 @@ function App() {
                   <span className="token plain"></span>
                 </span>
                 <span className="token block">
-                  <span className="token plain">module</span>
-                  <span className="token punctuation">.</span>
-                  <span className="token property-access">exports</span>
+                  <span className="token plain"></span>
+                  <span className="token keyword module">export</span>
                   <span className="token plain"> </span>
-                  <span className="token operator">=</span>
+                  <span className="token keyword module">default</span>
                   <span className="token plain"> </span>
                   <span className="token punctuation">&#123;</span>
                   <span className="token plain"></span>
                 </span>
-                <span className="token block -mx-5 pl-4 pr-5 border-l-4 border-sky-400 bg-sky-300/[0.15] text-sky-300">
+                <span className="token block -mx-5 pl-4 pr-5 border-l-4 border-sky-400 bg-sky-300/[0.15]">
                   <span className="token plain"> </span>
-                  <span className="token literal-property property ">
+                  <span className="token literal-property property">
                     content
                   </span>
                   <span className="token operator">:</span>
                   <span className="token plain"> </span>
-                  <span className="token punctuation text-slate-500">[</span>
+                  <span className="token punctuation">[</span>
+                  <span className="token plain"></span>
+                </span>
+                <span className="token block -mx-5 pl-4 pr-5 border-l-4 border-sky-400 bg-sky-300/[0.15]">
+                  <span className="token plain"> </span>
+                  <span className="token plain"> </span>
+                  <span className="token plain"> </span>
+                  <span className="token string">&quot;./index.html&quot;</span>
+                  <span className="token punctuation">,</span>
+                  <span className="token plain"></span>
+                </span>
+                <span className="token block -mx-5 pl-4 pr-5 border-l-4 border-sky-400 bg-sky-300/[0.15]">
+                  <span className="token plain"> </span>
+                  <span className="token plain"> </span>
+                  <span className="token plain"> </span>
                   <span className="token string">
-                    &quot;./src/**/*.&#123;html,js&#125;&quot;
+                    &quot;./src/**/*.&#123;(js, ts, jsx, tsx)&#125;&quot;
                   </span>
-                  <span className="token punctuation text-slate-500">]</span>
+                  <span className="token punctuation">,</span>
+                  <span className="token plain"></span>
+                </span>
+                <span className="token block -mx-5 pl-4 pr-5 border-l-4 border-sky-400 bg-sky-300/[0.15]">
+                  <span className="token plain"> </span>
+                  <span className="token punctuation">]</span>
                   <span className="token punctuation">,</span>
                   <span className="token plain"></span>
                 </span>
@@ -238,13 +256,11 @@ function App() {
                   <span className="token plain"> </span>
                   <span className="token plain"> </span>
                   <span className="token plain"> </span>
-                  <span className="token plain"> </span>
                   <span className="token literal-property property">
                     extend
                   </span>
                   <span className="token operator">:</span>
                   <span className="token plain"> </span>
-                  <span className="token punctuation"></span>
                   <span className="token punctuation">&#123;</span>
                   <span className="token punctuation">&#125;</span>
                   <span className="token punctuation">,</span>
