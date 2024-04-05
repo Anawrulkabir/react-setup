@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { LuFolderOpenDot } from 'react-icons/lu'
+import { FaGithub } from 'react-icons/fa'
 
 function App() {
   function copyToClipboard(id, btnId) {
@@ -27,7 +28,16 @@ function App() {
 
   return (
     <>
-      <p className="text-6xl  font-mono text-orange-400 m-20 text-center">
+      <div className=" flex justify-end text-2xl text-green-500">
+        <a
+          href="https://github.com/Anawrulkabir/react-setup"
+          target="_blanck"
+          className="hover:scale-110"
+        >
+          <FaGithub />
+        </a>
+      </div>
+      <p className="text-6xl  font-mono text-orange-400 mx-20 my-12 text-center">
         React Setup Essentials
       </p>
 
