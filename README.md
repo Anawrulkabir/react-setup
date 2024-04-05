@@ -18,7 +18,7 @@ Welcome to the React Project Starter Kit! Say goodbye to navigating multiple web
 
 ## Live Demo:
 
-Check out the live demo of the React Project Starter Kit [](/src/assets/live-demo.mov).
+Check out the live demo of the React Project Starter Kit [/src/assets/live-demo.mov].
 
 ## Contributing:
 
