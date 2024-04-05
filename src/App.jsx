@@ -24,28 +24,28 @@ function App() {
     packageName = packageName.replace(/\s+/g, '-');
     packageName = packageName.replace(/[^a-z0-9-_]/g, '');
     return packageName;
-}
+  }
 
   function packageNameValidator(packageName) {
     const regex = /^(?!.*[_A-Z\s])[-a-z0-9_]+$/;
     return regex.test(packageName);
   }
 
-  
+
   const handleForm = (e) => {
     e.preventDefault()
     const project = e.target.name.value
     const nameValidator = packageNameValidator(project)
-    if(nameValidator){
+    if (nameValidator) {
       setProjectName(project)
-    }else{
+    } else {
       const correctedPackageName = packageNameCorrector(project)
       setProjectName(correctedPackageName)
     }
   }
 
   return (
-    <>
+    <div className='p-4 lg:p-8'>
       <div className=" flex justify-end text-2xl text-green-500">
         <a
           href="https://github.com/Anawrulkabir/react-setup"
@@ -55,13 +55,13 @@ function App() {
           <FaGithub />
         </a>
       </div>
-      <p className="text-6xl  font-mono text-orange-400 mx-20 my-12 text-center">
+      <p className="text-4xl lg:text-6xl font-mono text-orange-400 lg:mx-20 my-6 lg:my-12 text-center">
         React Setup Essentials
       </p>
 
       {/* input box */}
-      <div className="mx-[450px] mt-10 mb-20 flex ">
-        <form onSubmit={handleForm} className="flex gap-10">
+      <div className="lg:mx-[450px] mt-10 flex">
+        <form onSubmit={handleForm} className="flex flex-col lg:flex-row justify-center lg:justify-start gap-4 lg:gap-10 w-full">
           <label className="input input-bordered flex items-center gap-2">
             <input
               type="text"
@@ -71,84 +71,93 @@ function App() {
             />
             <LuFolderOpenDot />
           </label>
-          <button className="btn bg-orange-400 text-black text-sm">
+          <button className="btn bg-orange-400 text-black text-lg lg:text-sm">
             Enter
           </button>
         </form>
       </div>
 
       {/* command */}
-      <div className="mx-[300px] my-10 border border-zinc-700  bg-slate-800 rounded-xl shadow-lg">
-        <div className="relative flex text-slate-400 text-xs leading-6 bg-slate-800 rounded-xl shadow-lg ">
-          <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
-            command
-          </div>
-          <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">
-            <div className="flex-auto -mr-px bg-slate-700/50 border border-slate-500/30 rounded-tl"></div>
-          </div>
-          <div className="absolute top-2 right-0 h-8 flex items-center pr-4">
-            <div className="relative flex -mr-2">
-              <button
-                type="button"
-                className="text-slate-500 hover:text-slate-400 "
-                data-tip="copied"
-                id="command-btn"
-                onClick={() => copyToClipboard('command', 'command-btn')}
-              >
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                  className="w-8 h-8"
+      <div className='my-10'>
+        <dir className="my-10">
+          <h1 className='font-bold text-2xl text-center w-full font-mono text-orange-400'>NPM Packages</h1>
+          <p className='font-mono font-medium'>Elevate Your React Projects with Essential NPM Packages</p>
+        </dir>
+        <div className="lg:mx-[300px] border border-zinc-700  bg-slate-800 rounded-xl shadow-lg">
+
+          <div className="relative flex text-slate-400 text-xs leading-6 bg-slate-800 rounded-xl shadow-lg ">
+            <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
+              command
+            </div>
+            <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">
+              <div className="flex-auto -mr-px bg-slate-700/50 border border-slate-500/30 rounded-tl"></div>
+            </div>
+            <div className="absolute top-2 right-0 h-8 flex items-center pr-4">
+              <div className="relative flex -mr-2">
+                <button
+                  type="button"
+                  className="text-slate-500 hover:text-slate-400 "
+                  data-tip="copied"
+                  id="command-btn"
+                  onClick={() => copyToClipboard('command', 'command-btn')}
                 >
-                  <path d="M13 10.75h-1.25a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h8.5a2 2 0 0 0 2-2v-8.5a2 2 0 0 0-2-2H19"></path>
-                  <path d="M18 12.25h-4a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5a1 1 0 0 1-1 1ZM13.75 16.25h4.5M13.75 19.25h4.5"></path>
-                </svg>
-              </button>
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className="w-8 h-8"
+                  >
+                    <path d="M13 10.75h-1.25a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h8.5a2 2 0 0 0 2-2v-8.5a2 2 0 0 0-2-2H19"></path>
+                    <path d="M18 12.25h-4a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5a1 1 0 0 1-1 1ZM13.75 16.25h4.5M13.75 19.25h4.5"></path>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className=" text-left p-5 text-zinc-300" id="command">
-          <pre data-prefix="1" className="">
-            <code>
-              npm create vite@latest {projectName} -- --template react{' '}
-            </code>
-          </pre>
-          <pre data-prefix="2" className="">
-            <code>cd {projectName}</code>
-          </pre>
-          <pre data-prefix="3" className="">
-            <code>npm install -D tailwindcss postcss autoprefixer</code>
-          </pre>
-          <pre data-prefix="4" className="">
-            <code>npx tailwindcss init -p</code>
-          </pre>
-          <pre data-prefix="5" className="">
-            <code>npm i -D daisyui@latest</code>
-          </pre>
-          <pre data-prefix="6" className="">
-            <code>
-              npm install react-router-dom localforage match-sorter sort-by
-            </code>
-          </pre>
-          <pre data-prefix="7" className="">
-            <code>npm install firebase</code>
-          </pre>
-          <pre data-prefix="8" className="">
-            <code>npm install react-icons --save</code>
-          </pre>
-          <pre data-prefix="9" className="">
-            <code>npm i react-toastify</code>
-          </pre>
+          <div className=" text-left p-5 text-zinc-300" id="command">
+            <pre data-prefix="1" className="">
+              <code className='text-balance'>
+                npm create vite@latest {projectName} -- --template react{' '}
+              </code>
+            </pre>
+            <pre data-prefix="2" className="">
+              <code className='text-balance'>cd {projectName}</code>
+            </pre>
+            <pre data-prefix="3" className="">
+              <code className='text-balance'>npm install -D tailwindcss postcss autoprefixer</code>
+            </pre>
+            <pre data-prefix="4" className="">
+              <code className='text-balance'>npx tailwindcss init -p</code>
+            </pre>
+            <pre data-prefix="5" className="">
+              <code className='text-balance'>npm i -D daisyui@latest</code>
+            </pre>
+            <pre data-prefix="6" className="">
+              <code className='text-balance'>
+                npm install react-router-dom localforage match-sorter sort-by
+              </code>
+            </pre>
+            <pre data-prefix="7" className="">
+              <code className='text-balance'>npm install firebase</code>
+            </pre>
+            <pre data-prefix="8" className="">
+              <code className='text-balance'>npm install react-icons --save</code>
+            </pre>
+            <pre data-prefix="9" className="">
+              <code className='text-balance'>npm i react-toastify</code>
+            </pre>
+          </div>
         </div>
       </div>
 
       {/* tailwind.config.js */}
-      <div className="mx-[300px] mb-20">
-        <div className=" text-left relative z-10 -ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
+      <div className="lg:mx-[300px]">
+        <h1 className='font-bold text-2xl text-center w-full font-mono text-orange-400'>Tailwind Configuration</h1>
+        <p className='font-mono font-medium'>Fine-tune Your Tailwind Setup for React Projects</p>
+        <div className="text-left relative my-10 z-10 lg:-ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
           <div className="relative flex text-slate-400 text-xs leading-6">
             <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
               tailwind.config.js
@@ -316,8 +325,12 @@ function App() {
       </div>
 
       {/* index.css */}
-      <div className="mx-[300px] mb-20">
-        <div className="relative z-10 -ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
+      <div className="lg:mx-[300px] my-10">
+        <div className='my-10'>
+          <h1 className='font-bold text-2xl text-center w-full font-mono text-orange-400'>Integrate Tailwind Directives</h1>
+          <p className='font-mono font-medium'>Add the directives for each of Tailwind’s layers.</p>
+        </div>
+        <div className="relative z-10 lg:-ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
           <div className="relative flex text-slate-400 text-xs leading-6">
             <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
               src/index.css
@@ -377,14 +390,19 @@ function App() {
       </div>
 
       {/* main.jsx */}
+      <div className='my-10'>
+          <h1 className='font-bold text-2xl text-center w-full font-mono text-orange-400'>React Router Integration</h1>
+          <p className='font-mono font-medium'>Seamlessly Incorporate React Router for Dynamic Page Navigation</p>
+        </div>
       <div
         data-code-block=""
         data-filename="src/main.jsx"
         data-line-numbers="true"
         data-lang="jsx"
-        className="text-left bg-slate-800 rounded-xl mx-[300px]  text-zinc-300"
+        className="text-left bg-slate-800 rounded-xl lg:mx-[300px]  text-zinc-300"
       >
-        <div className="relative flex text-slate-400 text-xs leading-6">
+        
+        <div className="relative flex text-slate-400 text-xs leading-6 w-full">
           <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
             src/main.jsx
           </div>
@@ -422,8 +440,8 @@ function App() {
           data-lang="jsx"
           className="p-5"
         >
-          <code id="main-jsx">
-            <span className="codeblock-line" data-line-number="1">
+          <code className='break-words text-balance' id="main-jsx">
+            <span className="codeblock-line text-balance" data-line-number="1">
               <span>import</span> <span>*</span> <span>as</span>{' '}
               <span>React</span> <span>from</span> &quot;<span>react</span>
               &quot;;
@@ -532,7 +550,7 @@ function App() {
             <br />
             <span className="codeblock-line" data-line-number="15"></span>{' '}
             <br />
-            <span className="codeblock-line" data-line-number="16">
+            <span className="codeblock-line   " data-line-number="16">
               <span>ReactDOM</span>.<span>createRoot</span>(
               <span>document</span>.<span>getElementById</span>(&quot;
               <span>root</span>&quot;)).
@@ -570,7 +588,7 @@ function App() {
           </code>
         </pre>
       </div>
-    </>
+    </div>
   )
 }
 
