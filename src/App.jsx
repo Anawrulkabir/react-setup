@@ -30,6 +30,8 @@ function App() {
       <p className="text-6xl  font-mono text-orange-400 m-20 text-center">
         React Setup Essentials
       </p>
+
+      {/* input box */}
       <div className="mx-[450px] mt-10 mb-20 flex ">
         <form onSubmit={handleForm} className="flex gap-10">
           <label className="input input-bordered flex items-center gap-2">
@@ -47,8 +49,9 @@ function App() {
         </form>
       </div>
 
-      <div className="mx-[300px] my-10   bg-slate-800 rounded-xl shadow-lg">
-        <div className="relative flex text-slate-400 text-xs leading-6">
+      {/* command */}
+      <div className="mx-[300px] my-10 border border-zinc-700  bg-slate-800 rounded-xl shadow-lg">
+        <div className="relative flex text-slate-400 text-xs leading-6 bg-slate-800 rounded-xl shadow-lg ">
           <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
             command
           </div>
@@ -117,6 +120,7 @@ function App() {
         </div>
       </div>
 
+      {/* tailwind.config.js */}
       <div className="mx-[300px] mb-20">
         <div className=" text-left relative z-10 -ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
           <div className="relative flex text-slate-400 text-xs leading-6">
@@ -131,7 +135,7 @@ function App() {
                 <button
                   type="button"
                   className="text-slate-500 hover:text-slate-400 "
-                  data-tip="copied"
+                  data-tip="copied 2"
                   id="tailwind-config-btn"
                   onClick={() =>
                     copyToClipboard('tailwind-config', 'tailwind-config-btn')
@@ -269,6 +273,7 @@ function App() {
         </div>
       </div>
 
+      {/* index.css */}
       <div className="mx-[300px] mb-20">
         <div className="relative z-10 -ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
           <div className="relative flex text-slate-400 text-xs leading-6">
@@ -283,6 +288,7 @@ function App() {
                 <button
                   type="button"
                   id="index-css-btn"
+                  data-tip="copied"
                   className="text-slate-500 hover:text-slate-400"
                   onClick={() => copyToClipboard('index-css', 'index-css-btn')}
                 >
@@ -328,6 +334,7 @@ function App() {
         </div>
       </div>
 
+      {/* main.jsx */}
       <div
         data-code-block=""
         data-filename="src/main.jsx"
@@ -347,6 +354,7 @@ function App() {
               <button
                 type="button"
                 id="main-jsx-btn"
+                data-tip="copied"
                 className="text-slate-500 hover:text-slate-400"
                 onClick={() => copyToClipboard('main-jsx', 'main-jsx-btn')}
               >
