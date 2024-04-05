@@ -74,10 +74,8 @@ function App() {
                 type="button"
                 className="text-slate-500 hover:text-slate-400 "
                 data-tip="copied"
-                id="tailwind-config-btn"
-                onClick={() =>
-                  copyToClipboard('tailwind-config', 'tailwind-config-btn')
-                }
+                id="command-btn"
+                onClick={() => copyToClipboard('command', 'command-btn')}
               >
                 <svg
                   fill="none"
