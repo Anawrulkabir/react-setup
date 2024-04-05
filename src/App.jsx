@@ -19,11 +19,29 @@ function App() {
   }
   const [projectName, setProjectName] = useState('my-project')
 
+  function packageNameCorrector(packageName) {
+    packageName = packageName.toLowerCase();
+    packageName = packageName.replace(/\s+/g, '-');
+    packageName = packageName.replace(/[^a-z0-9-_]/g, '');
+    return packageName;
+}
+
+  function packageNameValidator(packageName) {
+    const regex = /^(?!.*[_A-Z\s])[-a-z0-9_]+$/;
+    return regex.test(packageName);
+  }
+
+  
   const handleForm = (e) => {
     e.preventDefault()
     const project = e.target.name.value
-    setProjectName(project)
-    console.log(projectName)
+    const nameValidator = packageNameValidator(project)
+    if(nameValidator){
+      setProjectName(project)
+    }else{
+      const correctedPackageName = packageNameCorrector(project)
+      setProjectName(correctedPackageName)
+    }
   }
 
   return (
