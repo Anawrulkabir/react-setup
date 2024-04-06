@@ -24,6 +24,9 @@ Check out the live demo of the React Project Starter Kit [here](/src/assets/live
 
 Contributions to enhance this starter kit are welcome! Feel free to submit pull requests for new features, bug fixes, or improvements.
 
+## Feature Request 
+Feature Request List - https://docs.google.com/document/d/1eAR5gghgtfAWuBz0rupokwMrQWgxKACELG56Z1pz0PM/edit?usp=sharing
+
 ## License:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
