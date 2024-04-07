@@ -11,6 +11,7 @@ function App() {
   const [useDaisy, setDaisy] = useState(false)
   const [useIcons, setIcons] = useState(false)
   const [useToastify, setToastify] = useState(false)
+  const [usePropTypes, setPropTypes] = useState(false)
 
   function copyToClipboard(id, btnId) {
     const textToCopy = document.getElementById(id).innerText
@@ -123,6 +124,15 @@ function App() {
                 </div>
               </label>
             </li>
+            <li>
+              <input onClick={() => setPropTypes(!usePropTypes)} type="checkbox" id="propTypes-option" value="" className="hidden peer"></input>
+              <label htmlFor="propTypes-option" className="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <div className="flex flex-col gap-2 items-center justify-center w-full">
+                  <img width="28" height="28" src="react-svgrepo-com.svg" alt="prop-types" />
+                  <div className="w-full text-lg font-semibold font-mono">Prop-types</div>
+                </div>
+              </label>
+            </li>
           </ul>
         </form>
       </div>
@@ -200,6 +210,11 @@ function App() {
             {
               useIcons && <pre data-prefix="8" className="">
                 <code className='text-balance'>npm install react-icons --save</code>
+              </pre>
+            }
+            {
+              usePropTypes && <pre data-prefix="8" className="">
+                <code className='text-balance'>npm i prop-types --save</code>
               </pre>
             }
             {
@@ -384,72 +399,72 @@ function App() {
             </div>
           </div>
         </div>
-      
-      {/* index.css */}
-      <div className="lg:mx-[300px] my-10">
-        <div className='my-10'>
-          <h1 className='font-bold text-2xl text-center w-full font-mono text-orange-400'>Integrate Tailwind Directives</h1>
-          <p className='font-mono font-medium'>Add the directives for each of Tailwind’s layers.</p>
-        </div>
-        <div className="relative z-10 lg:-ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
-          <div className="relative flex text-slate-400 text-xs leading-6">
-            <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
-              src/index.css
+
+          {/* index.css */}
+          <div className="lg:mx-[300px] my-10">
+            <div className='my-10'>
+              <h1 className='font-bold text-2xl text-center w-full font-mono text-orange-400'>Integrate Tailwind Directives</h1>
+              <p className='font-mono font-medium'>Add the directives for each of Tailwind’s layers.</p>
             </div>
-            <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">
-              <div className="flex-auto -mr-px bg-slate-700/50 border border-slate-500/30 rounded-tl"></div>
-            </div>
-            <div className="absolute top-2 right-0 h-8 flex items-center pr-4">
-              <div className="relative flex -mr-2">
-                <button
-                  type="button"
-                  id="index-css-btn"
-                  data-tip="copied"
-                  className="text-slate-500 hover:text-slate-400"
-                  onClick={() => copyToClipboard('index-css', 'index-css-btn')}
-                >
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    className="w-8 h-8"
+            <div className="relative z-10 lg:-ml-10 col-span-3 bg-slate-800 rounded-xl shadow-lg xl:ml-0 dark:shadow-none dark:ring-1 dark:ring-inset dark:ring-white/10">
+              <div className="relative flex text-slate-400 text-xs leading-6">
+                <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
+                  src/index.css
+                </div>
+                <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">
+                  <div className="flex-auto -mr-px bg-slate-700/50 border border-slate-500/30 rounded-tl"></div>
+                </div>
+                <div className="absolute top-2 right-0 h-8 flex items-center pr-4">
+                  <div className="relative flex -mr-2">
+                    <button
+                      type="button"
+                      id="index-css-btn"
+                      data-tip="copied"
+                      className="text-slate-500 hover:text-slate-400"
+                      onClick={() => copyToClipboard('index-css', 'index-css-btn')}
+                    >
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                        className="w-8 h-8"
+                      >
+                        <path d="M13 10.75h-1.25a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h8.5a2 2 0 0 0 2-2v-8.5a2 2 0 0 0-2-2H19"></path>
+                        <path d="M18 12.25h-4a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5a1 1 0 0 1-1 1ZM13.75 16.25h4.5M13.75 19.25h4.5"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="relative">
+                <pre className="text-sm leading-6 text-slate-50 flex ligatures-none overflow-auto">
+                  <code
+                    className="flex-none min-w-full p-5 text-left"
+                    id="index-css"
                   >
-                    <path d="M13 10.75h-1.25a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h8.5a2 2 0 0 0 2-2v-8.5a2 2 0 0 0-2-2H19"></path>
-                    <path d="M18 12.25h-4a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5a1 1 0 0 1-1 1ZM13.75 16.25h4.5M13.75 19.25h4.5"></path>
-                  </svg>
-                </button>
+                    <span className="token atrule">
+                      <span className="token rule">@tailwind</span> base
+                      <span className="token punctuation">;</span>
+                    </span>
+                    <br />
+                    <span className="token atrule">
+                      <span className="token rule">@tailwind</span> components
+                      <span className="token punctuation">;</span>
+                    </span>
+                    <br />
+                    <span className="token atrule">
+                      <span className="token rule">@tailwind</span> utilities
+                      <span className="token punctuation">;</span>
+                    </span>
+                  </code>
+                </pre>
               </div>
             </div>
           </div>
-          <div className="relative">
-            <pre className="text-sm leading-6 text-slate-50 flex ligatures-none overflow-auto">
-              <code
-                className="flex-none min-w-full p-5 text-left"
-                id="index-css"
-              >
-                <span className="token atrule">
-                  <span className="token rule">@tailwind</span> base
-                  <span className="token punctuation">;</span>
-                </span>
-                <br />
-                <span className="token atrule">
-                  <span className="token rule">@tailwind</span> components
-                  <span className="token punctuation">;</span>
-                </span>
-                <br />
-                <span className="token atrule">
-                  <span className="token rule">@tailwind</span> utilities
-                  <span className="token punctuation">;</span>
-                </span>
-              </code>
-            </pre>
-          </div>
-        </div>
-      </div>
-      </>
+        </>
       }
       {/* main.jsx */}
       {
@@ -648,6 +663,99 @@ function App() {
                   );
                 </span>{' '}
                 <br />
+              </code>
+            </pre>
+          </div></>
+      }
+      {/* MyComponent.jsx */}
+      {
+        usePropTypes && <>      <div className='my-10'>
+          <h1 className='font-bold text-2xl text-center w-full font-mono text-orange-400'>Prop-types Integration</h1>
+          <p className='font-mono font-medium'>Prop-types for props validation</p>
+        </div>
+          <div
+            data-code-block=""
+            data-filename="MyComponent.jsx"
+            data-line-numbers="true"
+            data-lang="jsx"
+            className="text-left bg-slate-800 rounded-xl lg:mx-[300px]  text-zinc-300"
+          >
+
+            <div className="relative flex text-slate-400 text-xs leading-6 w-full">
+              <div className="mt-2 flex-none text-sky-300 border-t border-b border-t-transparent border-b-sky-300 px-4 py-1 flex items-center">
+                MyComponent.jsx
+              </div>
+              <div className="flex-auto flex pt-2 rounded-tr-xl overflow-hidden">
+                <div className="flex-auto -mr-px bg-slate-700/50 border border-slate-500/30 rounded-tl"></div>
+              </div>
+              <div className="absolute top-2 right-0 h-8 flex items-center pr-4">
+                <div className="relative flex -mr-2">
+                  <button
+                    type="button"
+                    id="MyComponent-jsx-btn"
+                    data-tip="copied"
+                    className="text-slate-500 hover:text-slate-400"
+                    onClick={() => copyToClipboard('MyComponent-jsx', 'MyComponent-jsx-btn')}
+                  >
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="w-8 h-8"
+                    >
+                      <path d="M13 10.75h-1.25a2 2 0 0 0-2 2v8.5a2 2 0 0 0 2 2h8.5a2 2 0 0 0 2-2v-8.5a2 2 0 0 0-2-2H19"></path>
+                      <path d="M18 12.25h-4a1 1 0 0 1-1-1v-1.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5a1 1 0 0 1-1 1ZM13.75 16.25h4.5M13.75 19.25h4.5"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <pre
+              data-filename="MyComponent.jsx"
+              data-line-numbers="true"
+              data-lang="jsx"
+              className="p-5"
+            >
+              <code className='break-words text-balance' id="MyComponent-jsx">
+                <span
+                  className="codeblock-line"
+                  data-highlight="true"
+                  data-line-number="3"
+                >
+                  <span>import</span>
+                </span>
+                <span
+                  className="codeblock-line"
+                  data-highlight="true"
+                  data-line-number="4"
+                >
+                  {' '}
+                  <span>PropTypes</span>
+                </span>{' '}
+                <span
+                  className="codeblock-line"
+                  data-highlight="true"
+                  data-line-number="6"
+                ><span>from</span> &quot;<span>prop-types</span>
+                  &quot;;
+                </span>{' '}
+                <br />
+                <span>
+                  <pre className='whitespace-pre-wrap'>
+                    <code>{`
+MyComponent.propTypes = {
+  optionalFunc: PropTypes.func,
+  optionalNumber: PropTypes.number,
+  optionalObject: PropTypes.object,
+  optionalString: PropTypes.string,
+  optionalElement: PropTypes.element,
+  optionalNode: PropTypes.node
+};`}</code>
+                  </pre>
+                </span>
               </code>
             </pre>
           </div></>
