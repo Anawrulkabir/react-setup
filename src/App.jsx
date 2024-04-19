@@ -176,50 +176,50 @@ function App() {
           <div className=" text-left p-5 text-zinc-300" id="command">
             <pre data-prefix="1" className="">
               <code className='text-balance'>
-                npm create vite@latest {projectName} -- --template react{' '}
+                npm create vite@latest {projectName} -- --template react{' '} &&
               </code>
             </pre>
             <pre data-prefix="2" className="">
-              <code className='text-balance'>cd {projectName}</code>
+              <code className='text-balance'>cd {projectName} &&</code>
             </pre>
             {
               useTailwind && <><pre data-prefix="3" className="">
-                <code className='text-balance'>npm install -D tailwindcss postcss autoprefixer</code>
+                <code className='text-balance'>npm install -D tailwindcss postcss autoprefixer &&</code>
               </pre>
                 <pre data-prefix="4" className="">
-                  <code className='text-balance'>npx tailwindcss init -p</code>
+                  <code className='text-balance'>npx tailwindcss init -p &&</code>
                 </pre></>
             }
             {
               useDaisy && <pre data-prefix="5" className="">
-                <code className='text-balance'>npm i -D daisyui@latest</code>
+                <code className='text-balance'>npm i -D daisyui@latest &&</code>
               </pre>
             }
             {
               useRouter && <pre data-prefix="6" className="">
                 <code className='text-balance'>
-                  npm install react-router-dom localforage match-sorter sort-by
+                  npm install react-router-dom localforage match-sorter sort-by &&
                 </code>
               </pre>
             }
             {
               useFirebase && <pre data-prefix="7" className="">
-                <code className='text-balance'>npm install firebase</code>
+                <code className='text-balance'>npm install firebase &&</code>
               </pre>
             }
             {
               useIcons && <pre data-prefix="8" className="">
-                <code className='text-balance'>npm install react-icons --save</code>
+                <code className='text-balance'>npm install react-icons --save &&</code>
               </pre>
             }
             {
               usePropTypes && <pre data-prefix="8" className="">
-                <code className='text-balance'>npm i prop-types --save</code>
+                <code className='text-balance'>npm i prop-types --save &&</code>
               </pre>
             }
             {
               useToastify && <pre data-prefix="9" className="">
-                <code className='text-balance'>npm i react-toastify</code>
+                <code className='text-balance'>npm i react-toastify &&</code>
               </pre>
             }
           </div>
